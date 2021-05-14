@@ -5,7 +5,7 @@ using System;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace XUnitTestProject4
+namespace AreaCalculatorPRO.Tests
 {
     public class ShapeTests
     {
@@ -113,7 +113,7 @@ namespace XUnitTestProject4
         {
             var shape = Activator.CreateInstance(shapeType, testShapeData) as Shape;
 
-            double actualArea = AreaCalculator.CalculateArea(shape);
+            double actualArea = shape.GetArea();
 
             Assert.Equal(exceptedArea, actualArea);
         }
@@ -134,7 +134,7 @@ namespace XUnitTestProject4
         {
             var shape = Activator.CreateInstance(shapeType, testShapeData) as Shape;
 
-            double actualArea = await AreaCalculator.CalculateAreaAsync(shape);
+            double actualArea = await shape.GetAreaAsync();
 
             Assert.Equal(exceptedArea, actualArea);
         }

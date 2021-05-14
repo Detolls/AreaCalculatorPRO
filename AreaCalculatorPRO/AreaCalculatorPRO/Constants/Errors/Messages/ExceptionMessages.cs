@@ -5,13 +5,6 @@
     /// </summary>
     public static class ExceptionMessages
     {
-        #region Shape messages
-
-        public static string ShapeMustNotBeNull => "Shape must not be null.";
-        public static string ShapeIsNotRecognized => "Shape is not a recognized shape.";
-
-        #endregion
-
         #region Triangle messages
 
         public static string TriangleSideCannotBeNegative => "The side of a triangle cannot be negative.";

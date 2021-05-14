@@ -3,6 +3,7 @@ using AreaCalculatorPRO.Shapes.Base;
 using Dawn;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace AreaCalculatorPRO.Shapes
 {
@@ -57,6 +58,21 @@ namespace AreaCalculatorPRO.Shapes
         /// Check triangle is right angled.
         /// </summary>
         public bool IsRightAngled => CheckIsRightAngled();
+
+        /// <inheritdoc cref="Shape.GetArea"/>
+        public override double GetArea()
+        {
+            double semiPerimeter = (A + B + C) / 2;
+
+            return Math.Sqrt(semiPerimeter * (semiPerimeter - A) * (semiPerimeter - B)
+                * (semiPerimeter - C));
+        }
+
+        /// <inheritdoc cref="Shape.GetAreaAsync"/>
+        public override async Task<double> GetAreaAsync()
+        {
+            return await Task.Factory.StartNew(() => GetArea());
+        }
 
         private bool CheckIsRightAngled()
         {
